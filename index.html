@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <title>Frontend Mentor | Tip calculator app</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="logo">
+      <img id="logo" src="/images/logo.svg" alt="logo of splitter" />
+    </div>
+
+    <div class="main-container">
+      <div class="input-container">
+        <div class="bill-amount">
+          <label for="bill">Bill</label>
+          <input id="bill" type="number" />
+        </div>
+        <div class="tip-percent-selector">
+          <label>Select Tip %</label>
+          <div class="tip-grid-container">
+            <input id="5" class="hidden" type="radio" name="tip" value="5" />
+            <label class="grid-item" for="5">5%</label>
+
+            <input id="10" class="hidden" type="radio" name="tip" value="10" />
+            <label class="grid-item" for="10">10%</label>
+
+            <input id="15" class="hidden" type="radio" name="tip" value="15" />
+            <label class="grid-item" for="15">15%</label>
+
+            <input id="25" class="hidden" type="radio" name="tip" value="25" />
+            <label class="grid-item" for="25">25%</label>
+
+            <input id="50" class="hidden" type="radio" name="tip" value="50" />
+            <label class="grid-item" for="50">50%</label>
+
+            <!-- this one is only here since you can't deselect a radio group once selected -->
+            <input
+              style="display: none"
+              id="none"
+              class="hidden"
+              type="radio"
+              name="tip"
+            />
+            <label style="display: none" class="grid-item" for="none"
+              >none</label
+            >
+
+            <input
+              id="custom"
+              type="number"
+              name="tip-custom"
+              placeholder="Custom"
+              onclick="radioUnselector()"
+            />
+          </div>
+        </div>
+        <div class="cont-num-people">
+          <label for="num-people">Number of People</label>
+          <input
+            class="num-people"
+            id="num-people"
+            style="text-indent: 17px"
+            type="number"
+            onchange=" tipFinder()"
+          />
+        </div>
+      </div>
+
+      <div class="output-container">
+        <div class="output-text-wrapper">
+          <!-- <div class="tip-total">
+            <p class="tip-white">Total Tip</p>
+            <p class="tip-grey">/ person</p>
+            <div class="total-value">
+              <p id="total-tip-amount" class="amount">$00.00</p>
+            </div>
+          </div> -->
+
+          <div class="tip-total">
+            <div class="tpp-text">
+              <p class="tip-white">Total</p>
+              <p class="tip-grey">/ person</p>
+            </div>
+            <div class="tpp-value">
+              <p id="total-amount" class="amount">$00.00</p>
+            </div>
+          </div>
+
+          <div class="tip-per-person">
+            <div class="tpp-text">
+              <p class="tip-white">Tip Amount</p>
+              <p class="tip-grey">/ person</p>
+            </div>
+            <div class="tpp-value">
+              <p id="tip-amount-pp" class="amount">$00.00</p>
+            </div>
+          </div>
+        </div>
+        <buttom id="reset">Reset</buttom>
+      </div>
+    </div>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

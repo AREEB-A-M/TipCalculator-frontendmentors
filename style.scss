@@ -1,0 +1,311 @@
+$bgcolor: hsl(185, 41%, 84%);
+$button-active: hsl(172, 67%, 45%);
+$button-default: hsl(183, 97%, 14%);
+$tip-grey: hsl(184, 14%, 56%);
+$light-grey: hsl(180, 41%, 95%);
+$dark-grey: hsl(186, 14%, 43%);
+
+body {
+  // height: 100vh;
+  // width: 90vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: $bgcolor;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "space mono";
+}
+
+* {
+  box-sizing: border-box;
+}
+
+// body * {
+//   outline: 2px solid red;
+// }
+
+.hidden {
+  display: none;
+}
+// #reset {
+//   background-color: hsl(183, 100%, 15%);
+//   color: hsl(184, 14%, 56%);
+// }
+// p {
+//   color: hsl(184, 14%, 56%);
+// }
+// label {
+//   color: hsl(184, 14%, 56%);
+// }
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15vh;
+  width: 100%;
+}
+
+.main-container {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  height: 85vh;
+  width: 100%;
+  border-radius: 20px 20px 0 0;
+  padding-top: 0;
+  overflow: hidden;
+  @media (min-width: 800px) {
+    flex-direction: row;
+    width: 80%;
+    height: 60vh;
+    border-radius: 20px 20px;
+  }
+}
+
+.input-container {
+  background-color: white;
+  height: 70%;
+  width: 85%;
+  padding-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+
+  .bill-amount {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: hsl(186, 14%, 43%);
+    font-weight: 700;
+    font-size: 1rem;
+    width: 100%;
+    margin-bottom: 2rem;
+    label {
+      margin-bottom: 10px;
+    }
+    input {
+      border: none;
+      width: 100%;
+      height: 2.5rem;
+      border-radius: 5px;
+      background: url(images/icon-dollar.svg) no-repeat scroll 20px 12px;
+      background-color: $light-grey;
+      padding-right: 20px;
+      text-align: right;
+      font-family: "space mono";
+      padding-right: 1rem;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: $button-default;
+    }
+    /*for chrome and its derivatives*/
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    /* for firefox */
+    input[type="number"] {
+      -moz-appearance: textfield;
+    }
+  }
+
+  .tip-percent-selector {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem;
+    flex-direction: column;
+    width: 100%;
+    font-weight: 700;
+    color: $dark-grey;
+  }
+
+  @media (min-width: 800px) {
+    height: 100%;
+    width: 50%;
+    padding: 0;
+    margin: 1rem;
+  }
+}
+
+.output-container {
+  background-color: $button-default;
+  height: 40%;
+  width: 90%;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .tip-total {
+    display: flex;
+    width: 100%;
+    height: 50%;
+    justify-content: space-between;
+    align-items: center;
+    p {
+      margin: 0;
+    }
+  }
+  .tip-per-person {
+    display: flex;
+    width: 100%;
+    height: 50%;
+    justify-content: space-between;
+    align-items: center;
+    p {
+      margin: 0;
+    }
+  }
+  #reset {
+    margin-top: 1rem;
+    width: 85%;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background-color: $button-active;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: $button-default;
+    text-transform: uppercase;
+  }
+
+  @media (min-width: 800px) {
+    width: 50%;
+    height: 90%;
+    justify-content: stretch;
+    margin: 1rem;
+    justify-content: space-between;
+    #reset {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.tip-grid-container {
+  display: grid;
+  // grid-template-columns: 1fr 1fr;
+  width: 100%;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 1rem;
+
+  label {
+    background-color: $button-default;
+    text-align: center;
+    color: white;
+    height: 3rem;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  input[type="radio"]:checked + label {
+    background-color: $button-active;
+  }
+
+  input[type="number"] {
+    border: none;
+    background-color: $light-grey;
+    font-family: "space mono";
+    color: $button-default;
+    font-size: 2rem;
+    text-align: right;
+    padding-right: 1rem;
+  }
+
+  input[type="number"]::placeholder {
+    font-family: "space mono";
+    text-align: right;
+    padding-right: 1rem;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: $dark-grey;
+  }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  /* for firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+
+  @media (min-width: 800px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: 1fr 1fr;
+    input[type="number"]::placeholder {
+      font-size: 1rem;
+      text-align: right;
+      padding: 0;
+    }
+  }
+}
+
+.cont-num-people {
+  padding-block: 1.5rem;
+  width: 100%;
+  font-weight: 700;
+  color: $dark-grey;
+
+  input {
+    margin-top: 10px;
+    border: none;
+    width: 100%;
+    height: 2.5rem;
+    border-radius: 5px;
+    background: url(images/icon-person.svg) no-repeat scroll 20px 12px;
+    background-color: $light-grey;
+    padding-right: 20px;
+    text-align: right;
+    font-family: "space mono";
+    padding-right: 1rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: $button-default;
+  }
+  /*for chrome and its derivatives*/
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  /* for firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+}
+
+.output-text-wrapper {
+  width: 85%;
+  height: 50%;
+}
+
+.amount {
+  color: $button-active;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.tip-white {
+  color: $light-grey;
+  font-weight: 700;
+}
+
+.tip-grey {
+  color: $tip-grey;
+  font-weight: 700;
+}
